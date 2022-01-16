@@ -1,3 +1,2 @@
-autocrlf=false
-eol=lf
-text=input
+*       text=auto
+*.ts    text eol=lf
