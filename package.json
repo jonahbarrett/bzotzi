@@ -1,25 +1,31 @@
 {
-  "name": "tzotzibzotzi",
+  "name": "bzotzi",
   "version": "1.0.0",
   "description": "A discord bot built using Discord.js",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon -L src/index.ts"
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon",
+    "lint": "eslint"
   },
   "author": "Jonah Barrett",
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
     "@discordjs/rest": "^0.2.0-canary.0",
+    "bunyan": "^1.8.15",
+    "bunyan-format": "^0.2.1",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
-    "dotenv": "^12.0.3"
+    "dotenv": "^12.0.4"
   },
   "devDependencies": {
+    "@types/bunyan": "^1.8.8",
+    "@types/bunyan-format": "^0.2.4",
     "@types/node": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
-    "eslint": "^8.6.0",
+    "eslint": "^8.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.23.4",
     "nodemon": "^2.0.15",

@@ -1,4 +1,6 @@
 node_modules
-environment*.ts
+.env*
 *.js
 *.map
+build/
+logs/

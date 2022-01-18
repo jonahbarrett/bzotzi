@@ -9,20 +9,21 @@ import { ApplicationCommandData } from 'discord.js';
 const truthyFilter = <T>(x: T | false | undefined | "" | 0): x is T => !!x;
 
 export default class ReadyEvent extends Event {
+    private arg = process.argv[2];
     constructor() { super('Ready', 'ready'); };
 
     async exec() {
         discordLogger.info(`🤖 Logged in as ${client?.user?.tag}!`);
         discordLogger.info(`📊 Currently in ${client?.guilds.cache.size} guilds.`);
 
-        if(['deploy', 'register', 'edit'].includes(process.argv[2])) {
+        if(['deploy', 'register', 'edit'].includes(this.arg)) {
             discordLogger.debug(`Fetching application...`);
             await client.application?.commands.fetch();
             discordLogger.debug(`Fetched ${client.application?.commands.cache.size} commands.`);
         }
 
-        if(process.argv[2] === "deploy" || process.argv[2] === "register") {
-            const deploy = process.argv[2] === "deploy";
+        if(this.arg === "deploy" || this.arg === "register") {
+            const deploy = this.arg === "deploy";
 
             discordLogger.info(`${deploy ? "Deploying" : "Registering"} ${commands.size} commands...`);
             
@@ -44,7 +45,7 @@ export default class ReadyEvent extends Event {
             discordLogger.info(`${deploy ? "Deployed" : "Registered"} ${commands.size} commands.`);
         }
 
-        if(process.argv[2] === 'edit') {
+        if(this.arg === 'edit') {
             const commandNames   = process.argv.slice(3).map(cmd => cmd.toLowerCase());
             const commandsToEdit = commandNames.map(c => commands.get(c)).filter(truthyFilter);
 
@@ -70,6 +71,13 @@ export default class ReadyEvent extends Event {
                     discordLogger.debug(`Edited command ${command.name}.`);
                 }
             }
+        }
+
+        if(this.arg === 'delete') {
+            const commandsToDelete = await client.application?.commands.fetch();
+            commandsToDelete?.forEach(async (x) => {
+                await x.delete();
+            })
         }
     }
 }

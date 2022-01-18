@@ -1,11 +1,9 @@
 import  { Client, Collection, Intents } from "discord.js";
-import { clientId, guildId, token } from "./environment/environment";
 import fs from 'fs';
 import Event from './structures/Event';
 import Command from './structures/Command';
 import path from "path/posix";
-import { REST } from "@discordjs/rest";
-import { Routes } from "discord-api-types";
+import { env, exit } from "process";
 
 export const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
@@ -46,5 +44,5 @@ const cmdsLoading = (async function loadCommands(dir=path.resolve(__dirname, './
 })();
 
 Promise.all([eventsLoading, cmdsLoading]).then(() => {
-	client.login(token);
+	client.login(env.token);
 });

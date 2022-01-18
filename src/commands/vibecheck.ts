@@ -1,7 +1,6 @@
 import SlashCommand, { SlashCommandOptions } from "../structures/Command";
 import { Client, CommandInteraction } from "discord.js";
-import { primaryEmbed } from "../utils/embeds";
-import { SlashCommandBuilder, SlashCommandUserOption } from "@discordjs/builders";
+import { SlashCommandBuilder } from "@discordjs/builders";
 import { RESTPostAPIApplicationCommandsJSONBody } from "discord-api-types";
 
 export default class Vibecheck extends SlashCommand {

@@ -1,8 +1,0 @@
-version: "3"
-services:
-  bzotzi:
-    build:
-      context: .
-      dockerfile: .Dockerfile
-    volumes:
-      - ./src:/usr/app/src
