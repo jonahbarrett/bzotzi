@@ -4,7 +4,7 @@
   "description": "A discord bot built using Discord.js",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/index.ts deploy",
     "dev": "nodemon",
     "lint": "eslint"
   },
