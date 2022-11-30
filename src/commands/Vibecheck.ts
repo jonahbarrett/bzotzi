@@ -25,7 +25,7 @@ export const VibeCheck: Command = {
 
         // Vibecheck the other user
         if (user != null) {
-            content = `<@${user.toString()}> ${
+            content = `${user.toString()} ${
                 passes ? 'passed' : 'failed'
             } the vibecheck!`
         } else {
