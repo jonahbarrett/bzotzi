@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "commonjs",
+        "outDir": "./dist/",
+        "strict": true,
+        "moduleResolution": "node",
+        "importHelpers": false,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+        "sourceMap": false,
+        "baseUrl": "src",
+        "paths": {
+            "@commands": [
+                "commands"
+            ],
+            "@commands/*": [
+                "commands/*"
+            ],
+            "@helpers/*": [
+                "helpers/*"
+            ]
+        }
+    },
+    "files": [
+        "src/Bot.ts"
+    ],
+    "include": [
+        "./**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+}

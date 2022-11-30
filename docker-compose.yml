@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  bzotzi_prod:
+    image: bzotzi_prod
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
