@@ -2,8 +2,8 @@
   "name": "bzotzi-ts-v2",
   "packageManager": "yarn@3.3.0",
   "lint-staged": {
-    "*.ts": "eslint --cache --fix",
-    "*.{ts,css,md}": "prettier --write"
+    "*.ts": "yarn eslint --cache --fix",
+    "*.{ts,css,md}": "yarn prettier --write"
   },
   "scripts": {
     "prepare": "husky install",
